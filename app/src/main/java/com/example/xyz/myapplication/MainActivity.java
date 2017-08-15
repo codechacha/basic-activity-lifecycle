@@ -14,7 +14,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.v(TAG, "onCreate: activity가 실행되었습니다.");
+        Log.v(TAG, "onCreate(): activity가 생성되었습니다. View를 생성합니다.");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.v(TAG, "onStart(): activity가 화면에 보이게(visible) 됩니다.");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.v(TAG, "onResume(): 유저와 interaction할 수 있습니다.");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.v(TAG, "onPause(): 유저와 interaction할 수 없습니다.");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.v(TAG, "onStop(): activity가 더이상 화면에 보이지 않습니다.");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.v(TAG, "onDestroy(): activity가 종료되었습니다. 모든 자원을 release합니다.");
     }
 
     void onButtonClick(View v) {
